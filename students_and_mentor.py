@@ -14,7 +14,10 @@ class Student:
         '''Rate Lecturer'''
         if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and \
             ( course in self.courses_in_progress or course in self.courses_in_progress ):
-            lecturer.grades[course] = [grade]
+            if course in lecturer.grades:
+                lecturer.grades[course] += [grade]
+            else:
+                lecturer.grades[course] = [grade]
     
     def __str__(self):
         str_result = ''
