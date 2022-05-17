@@ -21,10 +21,10 @@ class Student:
     
     def __str__(self):
         str_result = ''
-        str_result += (f'Имя: {self.name}\n')
-        str_result += (f'Фамилия: {self.surname}\n')
-        str_result += (f'Средняя оценка за домашние задания: {round(self.avg_grade(), 2)}\n')
-        str_result += ('Курсы в процессе изучения: ')
+        str_result += f'Имя: {self.name}\n'
+        str_result += f'Фамилия: {self.surname}\n'
+        str_result += f'Средняя оценка за домашние задания: {round(self._avg_grade(), 2)}\n'
+        str_result += 'Курсы в процессе изучения: '
         i = 0
         for item in self.courses_in_progress:
             str_result += item.__str__()
@@ -67,9 +67,9 @@ class Lecturer(Mentor):
 
     def __str__(self):
         str_result = ''
-        str_result += (f'Имя: {self.name}\n')
-        str_result += (f'Фамилия: {self.surname}\n')
-        str_result += (f'Средняя оценка за лекции: {round(self.avg_grade(), 1)}')
+        str_result += f'Имя: {self.name}\n'
+        str_result += f'Фамилия: {self.surname}\n'
+        str_result += f'Средняя оценка за лекции: {round(self._avg_grade(), 1)}'
         return str_result
 
     def avg_grade(self):
