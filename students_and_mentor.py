@@ -101,36 +101,6 @@ class Reviewer(Mentor):
         str_result += f'Фамилия: {self.surname}'
         return str_result
 
-best_student = Student('Ruoy', 'Eman', 'your_gender')
-best_student.courses_in_progress += ['Python']
-best_student.courses_in_progress += ['Git']
-best_student.finished_courses += ['Введение в программирование']
-
-# cool_review 
-cool_review = Reviewer('Some', 'Buddy')
-cool_review.courses_attached += ['Python']
-cool_review.courses_attached += ['Git']
-
-# simple_lecturer
-simple_lecturer = Lecturer('Anoth', 'Erone')
-simple_lecturer.courses_attached += ["Git"]
-
-# cool_lecturer
-cool_lecturer = Lecturer('Thebe', 'Stone')
-cool_lecturer.courses_attached += ["Git"]
-cool_lecturer.courses_attached += ["Python"]
-
-# rate
-cool_review.rate_hw(best_student, 'Python', 10)
-cool_review.rate_hw(best_student, 'Python', 10)
-cool_review.rate_hw(best_student, 'Python', 10)
-cool_review.rate_hw(best_student, 'Git', 8)
-
-best_student.rate_lc(simple_lecturer, 'Python', 8)  # Не пройдёт, потому что simple_lecturer не умеет в Python
-best_student.rate_lc(simple_lecturer, 'Git', 5)
-
-best_student.rate_lc(cool_lecturer, 'Python', 10)
-best_student.rate_lc(cool_lecturer, 'Git', 10)
 def avg_hw_grade(students_list, course_name):
     grades_lists = []
     for student in students_list:
@@ -156,13 +126,3 @@ def avg_lcr_grade(lectirers_list, course_name):
         return 0.0
 
 
- 
-print(best_student.grades)
-print(simple_lecturer.grades)
-print(cool_lecturer.grades)
-print('')
-print(best_student)
-print('')
-print(simple_lecturer)
-print('')
-print(cool_lecturer)
