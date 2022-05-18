@@ -131,6 +131,31 @@ best_student.rate_lc(simple_lecturer, 'Git', 5)
 
 best_student.rate_lc(cool_lecturer, 'Python', 10)
 best_student.rate_lc(cool_lecturer, 'Git', 10)
+def avg_hw_grade(students_list, course_name):
+    grades_lists = []
+    for student in students_list:
+        for course, grades in student.grades.items():
+            if course == course_name:
+                grades_lists += grades
+
+    if len(grades_lists) > 0:
+        return sum(grades_lists) / float(len(grades_lists))
+    else:
+        return 0.0
+
+def avg_lcr_grade(lectirers_list, course_name):
+    grades_lists = []
+    for lecturer in lectirers_list:
+        for course, grades in lecturer.grades.items():
+            if course == course_name:
+                grades_lists += grades
+
+    if len(grades_lists) > 0:
+        return sum(grades_lists) / float(len(grades_lists))
+    else:
+        return 0.0
+
+
  
 print(best_student.grades)
 print(simple_lecturer.grades)
