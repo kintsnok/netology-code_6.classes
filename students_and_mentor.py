@@ -45,10 +45,9 @@ class Student:
     def _avg_grade(self):
         alist = []
         for gr_list in self.grades.values():
-            alist.append( gr_list )
-        flat_list = [item for sublist in alist for item in sublist]
-        if len(flat_list) > 0:
-            return sum(flat_list) / float(len(flat_list))
+            alist += gr_list
+        if len(alist) > 0:
+            return sum(alist) / float(len(alist))
         else:
             return 0.0
         
@@ -79,10 +78,9 @@ class Lecturer(Mentor):
     def _avg_grade(self):
         alist = []
         for gr_list in self.grades.values():
-            alist.append( gr_list )
-        flat_list = [item for sublist in alist for item in sublist]
-        if len(flat_list) > 0:
-            return sum(flat_list) / float(len(flat_list))
+            alist += gr_list
+        if len(alist) > 0:
+            return sum(alist) / float(len(alist))
         else:
             return 0.0
 
