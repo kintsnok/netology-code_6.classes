@@ -97,8 +97,8 @@ class Reviewer(Mentor):
 
     def __str__(self):
         str_result = ''
-        str_result += (f'Имя: {self.name}\n')
-        str_result += (f'Фамилия: {self.surname}')
+        str_result += f'Имя: {self.name}\n'
+        str_result += f'Фамилия: {self.surname}'
         return str_result
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
