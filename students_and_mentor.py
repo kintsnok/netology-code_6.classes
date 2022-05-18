@@ -126,3 +126,72 @@ def avg_lcr_grade(lectirers_list, course_name):
         return 0.0
 
 
+# students
+first_student = Student('First', 'Student', 'male')
+first_student.courses_in_progress += ['Python']
+first_student.courses_in_progress += ['Git']
+first_student.finished_courses += ['Введение в программирование']
+#
+second_student = Student('Second', 'Student', 'female')
+second_student.courses_in_progress += ['Cpp']
+second_student.finished_courses += ['Введение в программирование']
+
+# reviewers
+first_reviewer = Reviewer('First', 'Reviewer')
+first_reviewer.courses_attached += ['Python']
+first_reviewer.courses_attached += ['Git']
+#
+second_reviewer = Reviewer('Second', 'Reviewer')
+second_reviewer.courses_attached += ['Cpp']
+
+# lecturers
+first_lecturer = Lecturer('First', 'Lecturer')
+first_lecturer.courses_attached += ["Git"]
+#
+second_lecturer = Lecturer('Second', 'Lecturer')
+second_lecturer.courses_attached += ["Git"]
+second_lecturer.courses_attached += ["Python"]
+second_lecturer.courses_attached += ["Cpp"]
+
+## reviewers rate students
+first_reviewer.rate_hw(first_student, 'Python', 6)
+first_reviewer.rate_hw(first_student, 'Python', 10)
+first_reviewer.rate_hw(first_student, 'Git', 10)
+first_reviewer.rate_hw(second_student, 'Python', 10)    # Не пройдёт, потому что second_student не умеет в Python
+first_reviewer.rate_hw(second_student, 'Git', 10)       # Не пройдёт, потому что second_student не умеет в Git
+#
+second_reviewer.rate_hw(first_student, 'Python', 8)       # Не пройдёт, потому что second_reviewer не умеет в Python
+second_reviewer.rate_hw(first_student, 'Cpp', 8)        # Не пройдёт, потому что first_student не умеет в Cpp
+second_reviewer.rate_hw(second_student, 'Python', 8)      # Не пройдёт, потому что second_reviewer не умеет в Python
+second_reviewer.rate_hw(second_student, 'Cpp', 8)
+
+## students rate lecturers
+first_student.rate_lc(first_lecturer, 'Python', 8)  # Не пройдёт, потому что first_lecturer не умеет в Python
+first_student.rate_lc(first_lecturer, 'Git', 5)
+first_student.rate_lc(second_lecturer, 'Git', 7)
+first_student.rate_lc(second_lecturer, 'Git', 8)
+first_student.rate_lc(second_lecturer, 'Git', 9)
+#
+second_student.rate_lc(second_lecturer, 'Cpp', 10)
+ 
+print(f'first_student: {first_student.grades}')
+print(f'second_student: {second_student.grades}')
+print(f'first_lecturer: {first_lecturer.grades}')
+print(f'second_lecturer: {second_lecturer.grades}')
+
+print('')
+print(first_student)
+print('')
+print(second_student)
+print('')
+print(first_lecturer)
+print('')
+print(second_lecturer)
+print('')
+if first_lecturer > second_lecturer:
+    print("first_lecturer круче, чем second_lecturer")
+elif first_lecturer < second_lecturer:
+    print("second_lecturer круче, чем first_lecturer")
+else:
+    print("first_lecturer и second_lecturer равны")
+
