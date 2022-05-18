@@ -72,6 +72,10 @@ class Lecturer(Mentor):
         str_result += f'Средняя оценка за лекции: {round(self._avg_grade(), 1)}'
         return str_result
 
+    def __lt__(self, another):
+        if isinstance(another, Lecturer):
+            return self._avg_grade() < another._avg_grade()
+
     def _avg_grade(self):
         alist = []
         for gr_list in self.grades.values():
