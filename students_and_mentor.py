@@ -42,7 +42,7 @@ class Student:
             i += 1
         return str_result
 
-    def avg_grade(self):
+    def _avg_grade(self):
         alist = []
         for gr_list in self.grades.values():
             alist.append( gr_list )
@@ -72,7 +72,7 @@ class Lecturer(Mentor):
         str_result += f'Средняя оценка за лекции: {round(self._avg_grade(), 1)}'
         return str_result
 
-    def avg_grade(self):
+    def _avg_grade(self):
         alist = []
         for gr_list in self.grades.values():
             alist.append( gr_list )
